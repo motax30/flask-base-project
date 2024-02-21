@@ -22,6 +22,7 @@ marshmallow
 marshmallow-enum
 marshmallow-sqlalchemy
 openpyxl
+psycopg2-binary
 PyJWT
 pylint
 pytest
