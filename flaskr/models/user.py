@@ -8,7 +8,7 @@ class UserModel(db_instance.Model):
 
     id = db_instance.Column(db_instance.Integer, primary_key=True, index=True)
     username = db_instance.Column(db_instance.String(80))
-    password = db_instance.Column(db_instance.String(80))
+    password = db_instance.Column(db_instance.String(255))
 
     def __init__(self, username, password, id=None):
         self.username = username
@@ -17,6 +17,28 @@ class UserModel(db_instance.Model):
     def __repr__(self):
         return "<UserModel(id={self.id!r}, username={self.username!r})>".format(self=self)
 
+    # Flask-Login integration
+    # NOTE: is_authenticated, is_active, and is_anonymous
+    # are methods in Flask-Login < 0.3.0
+    @property
+    def is_authenticated(self):
+        return True
+
+    @property
+    def is_active(self):
+        return True
+
+    @property
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return self.id
+
+    # Required for administrative interface
+    def __unicode__(self):
+        return self.username
+        
     @db_persist
     def save(self):
         db_instance.session.add(self)

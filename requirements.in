@@ -6,9 +6,11 @@ coverage
 flake8
 Flask
 flask-apispec
+flask-admin
 Flask-APScheduler
 Flask-Cors
 Flask-JWT-Extended
+Flask-Login
 flask-marshmallow
 Flask-Migrate
 Flask-RESTful
