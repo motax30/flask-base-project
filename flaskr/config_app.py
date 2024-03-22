@@ -1,9 +1,9 @@
 import os
 
-DEFAULT_USER = 'postgres'
-DEFAULT_PWD = 'postgres'
-DEFAULT_HOST = 'prj-db'
-DEFAULT_PORT = '5432'
+DEFAULT_USER = os.environ.get('DATABASE_USER', 'postgres')
+DEFAULT_PWD = os.environ.get('DATABASE_PASSWORD', 'postgres')
+DEFAULT_HOST = os.environ.get('DATABASE_HOST', 'localhost')
+DEFAULT_PORT = os.environ.get('DATABASE_PORT', '5432')
 
 DEFAULT_DATABASE = os.environ.get('DEFAULT_DATABASE', 'sdb')
 
@@ -17,3 +17,7 @@ DEFAULT_DATABASE_URL = os.environ.get(
 
 SQLALCHEMY_TRACK_MODIFICATIONS = int(os.environ.get('SQLALCHEMY_TRACK_MODIFICATIONS', '0')) == 1
 SQLALCHEMY_ECHO = int(os.environ.get('SQLALCHEMY_ECHO', '0')) == 1
+
+FLASK_DEBUG = int(os.environ.get('FLASK_DEBUG', '0')) == 1
+
+SECRET_KEY = os.environ.get('SECRET_KEY', '018de13c-3e9f-7335-b710-f4cb4ac5c763')
