@@ -8,7 +8,7 @@ DEFAULT_PORT = os.environ.get('DATABASE_PORT', '5432')
 DEFAULT_DATABASE = os.environ.get('DEFAULT_DATABASE', 'sdb')
 
 
-DEFAULT_DB_SCHEMA = os.environ.get('DEFAULT_DB_SCHEMA', 'stemplate')
+DEFAULT_DB_SCHEMA = os.environ.get('DEFAULT_DB_SCHEMA', 'public')
 
 DEFAULT_DATABASE_URL = os.environ.get(
     'DEFAULT_DATABASE_URL',
